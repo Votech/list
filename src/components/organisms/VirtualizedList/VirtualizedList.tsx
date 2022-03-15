@@ -1,4 +1,4 @@
-import { Dispatch, SetStateAction } from 'react';
+import { Dispatch, SetStateAction, MouseEvent  } from 'react';
 
 import { useNavigate } from 'react-router-dom';
 import { FixedSizeList, ListChildComponentProps } from 'react-window';
@@ -26,6 +26,9 @@ function renderRow(props: ListChildComponentProps) {
 
   const id = data[index].id;
 
+  const handleClick = (e: MouseEvent ) => e.stopPropagation();
+  const isChecked = checked.indexOf(id) !== -1;
+
   return (
     <ListItem
       onClick={() => {
@@ -36,8 +39,8 @@ function renderRow(props: ListChildComponentProps) {
           data-testid={`checkbox-${id}`}
           edge='end'
           onChange={handleToggle(id)}
-          onClick={(e) => e.stopPropagation()}
-          checked={checked.indexOf(id) !== -1}
+          onClick={handleClick}
+          checked={isChecked}
         />
       }
       style={style}

@@ -21,17 +21,21 @@ export default function HomePageTemplate({
   setChecked,
   setShowMany,
 }: IHomePageTemplateProps) {
+
+  const showMany = () => setShowMany(true);
+  const showFew = () => setShowMany(false);
+
   return (
     <Box sx={{ padding: 2 }}>
       <Box sx={{ display: 'flex', paddingBottom: 2 }}>
         <Button
           variant='contained'
-          onClick={() => setShowMany(false)}
+          onClick={showFew}
           sx={{ marginRight: 2 }}
         >
           Show 2 ads
         </Button>
-        <Button variant='contained' onClick={() => setShowMany(true)}>
+        <Button variant='contained' onClick={showMany}>
           Show 10 000 ads
         </Button>
       </Box>

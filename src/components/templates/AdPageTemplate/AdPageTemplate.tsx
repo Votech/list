@@ -17,9 +17,12 @@ export default function AdPageTemplate({
   state,
   navigate,
 }: AdPageTemplateProps) {
+
+  const handleGoBack = () => navigate('/');
+
   return (
     <Box sx={{ padding: 2 }}>
-      <Button variant='contained' onClick={() => navigate('/')}>
+      <Button variant='contained' onClick={handleGoBack} sx={{ marginBottom: 2 }}>
         Go Back
       </Button>
       {!!state &&
