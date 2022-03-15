@@ -22,7 +22,7 @@ export default function AdPageTemplate({
       <Button variant='contained' onClick={() => navigate('/')}>
         Go Back
       </Button>
-      {state &&
+      {!!state &&
         Object.entries(state).map((ad, index) => (
           <ListItem key={index}>
             <ListItemText
